@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11121.172 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Partify.Application", "Partify.Application\Partify.Application.csproj", "{AB86761F-4C85-4325-A7CE-7ECAD5C8A558}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Partify.Infrastructure", "Partify.Infrastructure\Partify.Infrastructure.csproj", "{D6C9F186-28BA-4C80-A4E6-F2811067CA01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Partify.API", "Partify\Partify.API.csproj", "{88B8CE12-6CD6-4B9B-B15C-FA3157666902}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "partify.react", "Partify.react\partify.react.esproj", "{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,24 @@ Global
 		{88B8CE12-6CD6-4B9B-B15C-FA3157666902}.Release|x64.Build.0 = Release|Any CPU
 		{88B8CE12-6CD6-4B9B-B15C-FA3157666902}.Release|x86.ActiveCfg = Release|Any CPU
 		{88B8CE12-6CD6-4B9B-B15C-FA3157666902}.Release|x86.Build.0 = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|x64.Build.0 = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|x86.Build.0 = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|x64.ActiveCfg = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|x64.Build.0 = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|x64.Deploy.0 = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|x86.ActiveCfg = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|x86.Build.0 = Release|Any CPU
+		{07E4F43C-43A9-2F4B-43AE-5DE2DDA2C339}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
