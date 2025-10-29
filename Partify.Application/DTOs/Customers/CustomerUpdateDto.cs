@@ -14,5 +14,6 @@ namespace Partify.Application.DTOs.Customers
         public string? Phone { get; set; }
         public string? Address { get; set; }
         public string? CarModel { get; set; }
+        public string? PlateNumber { get; set; }
     }
 }

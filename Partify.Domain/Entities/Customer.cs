@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Partify.Domain.Entities.Base;
 
 namespace Partify.Domain.Entities
@@ -16,5 +12,6 @@ namespace Partify.Domain.Entities
         public string? PhoneNumber { get; set; }
         public string? Address { get; set; }
         public string? CarModel { get; set; }
+        public string? PlateNumber { get; set; }
     }
 }

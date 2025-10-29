@@ -23,5 +23,8 @@ public class CustomerAddDtoValidator : AbstractValidator<CustomerAddDto>
         RuleFor(c => c.Address)
             .NotEmpty().WithMessage("Address is required")
             .MaximumLength(250).WithMessage("Address must be at most 250 characters");
+
+        RuleFor(c => c.PlateNumber)
+            .MaximumLength(20).WithMessage("Plate number must be at most 20 characters");
     }
 }
