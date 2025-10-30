@@ -1,8 +1,6 @@
 using Partify.Infrastructure.ServiceRegistration;
 using Partify.Application.ServiceRegistration;
 
-using Partify.Application.DTOs.Customers.Validators; // for CustomerAddDtoValidator
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -30,3 +28,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

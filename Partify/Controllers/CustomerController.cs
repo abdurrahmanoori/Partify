@@ -15,16 +15,20 @@ namespace Partify.API.Controllers
         {
             _customerService = customerService;
         }
-        
+
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerResponseDto>>> GetCustomers()=> HandleResultResponse(await _customerService.GetCustomers());
-       
+        public async Task<ActionResult<IEnumerable<CustomerResponseDto>>> GetCustomers() => HandleResultResponse(await _customerService.GetCustomers());
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<CustomerResponseDto>> GetCustomerById(int id) => HandleResultResponse(await _customerService.GetCustomerById(id));
 
         [HttpPost]
-        public async Task<ActionResult<CustomerResponseDto>> CreateCustomer([FromBody] CustomerAddDto customer) => HandleResultResponse(await _customerService.CreateCustomer(customer));
+        public async Task<ActionResult<CustomerResponseDto>> CreateCustomer([FromBody] CustomerAddDto customer)
+        {
+            var createdCustomer = await _customerService.CreateCustomer(customer);
+          return  HandleResultResponse(createdCustomer);
+        }
 
         [HttpPut("{id:int}")]
         public async Task<ActionResult<CustomerResponseDto>> UpdateCustomer(int id, [FromBody] CustomerUpdateDto customer) => HandleResultResponse(await _customerService.UpdateCustomer(id, customer));
