@@ -2,8 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './styles/CustomerStyles.css'
 import ThemeToggle from './ThemeToggle'
 import Sidebar from './Sidebar'
+import CustomerManagement from './pages/CustomerManagement'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,27 +35,7 @@ function App() {
         </header>
 
         <main className="main">
-          <div className="hero">
-            <div className="logos">
-              <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-                <img src={viteLogo} className="logo" alt="Vite logo" />
-              </a>
-              <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-                <img src={reactLogo} className="logo react" alt="React logo" />
-              </a>
-            </div>
-            <h2>Welcome to Your React App</h2>
-            <p>A modern, responsive template with dark and light mode support.</p>
-          </div>
-
-          <div className="card">
-            <button onClick={() => setCount((count) => count + 1)}>
-              count is {count}
-            </button>
-            <p>
-              Edit <code>src/App.tsx</code> and save to test HMR
-            </p>
-          </div>
+          <CustomerManagement />
         </main>
 
         <footer className="footer">
