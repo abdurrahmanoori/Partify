@@ -26,13 +26,24 @@ namespace Partify.Infrastructure.ServiceRegistration
 
                 var interceptor = serviceProvider.GetRequiredService<AuditInterceptor>();
 
-                options.UseSqlServer(
+                var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+
+                if (environment == "Development")
+                {
+                    options.UseSqlite(
                         configuration.GetConnectionString("DefaultConnection")
                     ).AddInterceptors(interceptor);
+                }
+                else
+                {
+                    options.UseSqlServer(
+                        configuration.GetConnectionString("DefaultConnection")
+                    ).AddInterceptors(interceptor);
+                }
             });
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-          
+
             return services;
         }
     }
