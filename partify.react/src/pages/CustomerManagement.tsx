@@ -77,6 +77,7 @@ const CustomerManagement: React.FC = () => {
           <CustomerDetail
             customerId={selectedCustomer?.id || 0}
             onBack={handleCancel}
+            onEdit={handleEditCustomer}
           />
         );
       default:

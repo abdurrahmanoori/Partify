@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import type { Customer } from '../types/Customer';
 import CustomerService from '../services/CustomerService';
+import '../styles/CustomerStyles.css';
 
 interface CustomerDetailProps {
   customerId: number;
   onBack: () => void;
+  onEdit?: (customer: Customer) => void;
 }
 
-const CustomerDetail: React.FC<CustomerDetailProps> = ({ customerId, onBack }) => {
+const CustomerDetail: React.FC<CustomerDetailProps> = ({ customerId, onBack, onEdit }) => {
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [outstanding, setOutstanding] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -141,7 +143,11 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({ customerId, onBack }) =
             <span className="btn-icon">📄</span>
             View History
           </button>
-          <button className="btn btn-primary">
+          <button 
+            className="btn btn-primary"
+            onClick={() => customer && onEdit?.(customer)}
+            disabled={!customer}
+          >
             <span className="btn-icon">✏️</span>
             Edit Customer
           </button>

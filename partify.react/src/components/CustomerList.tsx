@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import type { Customer } from '../types/Customer';
 import CustomerService from '../services/CustomerService';
+import '../styles/CustomerStyles.css';
 
 interface CustomerListProps {
   onAddCustomer?: () => void;
   onEditCustomer?: (customer: Customer) => void;
   onViewCustomer?: (customer: Customer) => void;
-  onDeleteCustomer?: (customerId: number) => void;
 }
 
 const CustomerList: React.FC<CustomerListProps> = ({
   onAddCustomer,
   onEditCustomer,
-  onViewCustomer,
-  onDeleteCustomer
+  onViewCustomer
 }) => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,11 +25,13 @@ const CustomerList: React.FC<CustomerListProps> = ({
   const loadCustomers = async () => {
     try {
       setLoading(true);
+      setError(null);
       const data = await CustomerService.getCustomers();
-      setCustomers(data);
+      console.log('Fetched customers:', data);
+      setCustomers(data || []);
     } catch (err) {
       setError('Failed to load customers');
-      console.error(err);
+      console.error('Error loading customers:', err);
     } finally {
       setLoading(false);
     }
@@ -66,6 +67,8 @@ const CustomerList: React.FC<CustomerListProps> = ({
           </button>
         </div>
       </div>
+      
+
 
       {error && (
         <div className="alert alert-error">

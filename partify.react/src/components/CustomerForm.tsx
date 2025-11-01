@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Customer, CustomerAdd, CustomerUpdate } from '../types/Customer';
 import CustomerService from '../services/CustomerService';
+import '../styles/CustomerStyles.css';
 
 interface CustomerFormProps {
   customer?: Customer;
@@ -38,7 +39,7 @@ const CustomerForm: React.FC<CustomerFormProps> = ({ customer, onSave, onCancel 
           name: formData.name,
           lastName: formData.lastName,
           email: formData.email,
-          phone: formData.phoneNumber,
+          phoneNumber: formData.phoneNumber,
           address: formData.address,
           carModel: formData.carModel,
           plateNumber: formData.plateNumber,
