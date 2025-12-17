@@ -138,6 +138,69 @@ const CustomerList: React.FC<CustomerListProps> = ({
         </table>
       </div>
 
+      {/* Mobile Card View */}
+      <div className="mobile-cards">
+        {customers.map(customer => (
+          <div key={customer.id} className="customer-card">
+            <div className="card-header">
+              <span className="card-id">#{customer.id}</span>
+              <div className="card-actions">
+                <button
+                  className="btn btn-outline view-btn"
+                  title="View Details"
+                  onClick={() => onViewCustomer?.(customer)}
+                >
+                  👁️
+                </button>
+                <button
+                  className="btn btn-outline edit-btn"
+                  title="Edit Customer"
+                  onClick={() => onEditCustomer?.(customer)}
+                >
+                  ✏️
+                </button>
+                <button
+                  className="btn btn-outline delete-btn"
+                  onClick={() => handleDelete(customer.id)}
+                  title="Delete Customer"
+                >
+                  🗑️
+                </button>
+              </div>
+            </div>
+            <div className="card-name">
+              {customer.name} {customer.lastName}
+            </div>
+            <div className="card-info">
+              <div className="card-info-item">
+                <span className="card-info-label">Email</span>
+                <span className="card-info-value">
+                  {customer.email || <span className="text-muted">No email</span>}
+                </span>
+              </div>
+              <div className="card-info-item">
+                <span className="card-info-label">Phone</span>
+                <span className="card-info-value">
+                  {customer.phoneNumber || <span className="text-muted">No phone</span>}
+                </span>
+              </div>
+              <div className="card-info-item">
+                <span className="card-info-label">Car Model</span>
+                <span className="card-info-value">
+                  {customer.carModel || <span className="text-muted">No car</span>}
+                </span>
+              </div>
+              <div className="card-info-item">
+                <span className="card-info-label">Plate Number</span>
+                <span className="card-info-value">
+                  {customer.plateNumber || <span className="text-muted">No plate</span>}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {customers.length === 0 && !loading && (
         <div className="empty-state">
           <div className="empty-icon">👥</div>
