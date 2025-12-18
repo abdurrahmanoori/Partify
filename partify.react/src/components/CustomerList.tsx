@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { Customer } from '../types/Customer';
 import CustomerService from '../services/CustomerService';
 import '../styles/CustomerStyles.css';
+import Swal from 'sweetalert2';
 
 interface CustomerListProps {
   onAddCustomer?: () => void;
@@ -38,13 +39,48 @@ const CustomerList: React.FC<CustomerListProps> = ({
   };
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this customer?')) {
+    const customer = customers.find(c => c.id === id);
+    const customerName = customer ? `${customer.name} ${customer.lastName}` : 'this customer';
+    
+    const result = await Swal.fire({
+      title: 'Delete Customer',
+      text: `Are you sure you want to delete ${customerName}? This action cannot be undone.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+      customClass: {
+        popup: 'swal2-popup',
+        confirmButton: 'swal2-confirm-button',
+        cancelButton: 'swal2-cancel-button'
+      }
+    });
+
+    if (result.isConfirmed) {
       try {
         await CustomerService.deleteCustomer(id);
         setCustomers(customers.filter(c => c.id !== id));
+        
+        await Swal.fire({
+          title: 'Deleted!',
+          text: `${customerName} has been deleted successfully.`,
+          icon: 'success',
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false
+        });
       } catch (err) {
         setError('Failed to delete customer');
         console.error(err);
+        
+        await Swal.fire({
+          title: 'Error!',
+          text: 'Failed to delete customer. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       }
     }
   };
